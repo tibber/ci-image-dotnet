@@ -1,1 +1,1 @@
-# ci-image-dotnet
+# Tibber CI image for .NET
