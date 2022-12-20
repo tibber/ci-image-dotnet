@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0
 
+# Check latest version at https://api.github.com/repos/docker/cli/tags
 ENV DOCKER_VERSION 20.10.22
 
 RUN set -x && \
