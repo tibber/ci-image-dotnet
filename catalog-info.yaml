@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ci-image-dotnet
+  annotations:
+    github.com/project-slug: tibber/ci-image-dotnet
+spec:
+  type: image
+  lifecycle: production
