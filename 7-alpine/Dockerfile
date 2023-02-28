@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine
 
 # Check latest version at https://api.github.com/repos/docker/cli/tags
-ENV DOCKER_VERSION 20.10.22
+ENV DOCKER_VERSION 23.0.1
 
 RUN set -x && \
     apk update && apk add aws-cli jq gettext bash  && \
