@@ -4,7 +4,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine
 ENV DOCKER_VERSION 23.0.1
 
 RUN set -x && \
-    apk update && apk add aws-cli jq gettext bash  && \
+    apk update && apk add aws-cli jq gettext bash build-base  && \
     curl -L -o /tmp/docker-$DOCKER_VERSION.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION.tgz && \
     tar -xz -C /tmp -f /tmp/docker-$DOCKER_VERSION.tgz && \
     mv /tmp/docker/* /usr/bin && \
