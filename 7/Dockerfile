@@ -8,3 +8,6 @@ RUN set -x && \
 
 RUN sudo apt-get update && \
     sudo apt-get -y install gettext-base dotnet-sdk-7.0
+
+RUN dotnet tool install -g trx2junit && \
+    echo "export PATH=\"\$PATH:\$HOME/.dotnet/tools\"" >> /home/circleci/.bashrc
