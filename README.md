@@ -10,6 +10,6 @@ List of image tags:
 
 | Tag      | Based on                                | Description                                                         |
 | :---:    | :---:                                   | :---:                                                               |
-| 6        | mcr.microsoft.com/dotnet/sdk:6.0        | Deprecated                                                          |
+| 6        | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-6.0` installed. Supports buildx used by `aws-ecr` orb.   |
 | 7-alpine | mcr.microsoft.com/dotnet/sdk:7.0-alpine | Microsoft Alpine image with Docker installed. Does not support Docker buildx / Buildkit.                      |
 | 7        | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-7.0` installed. Supports buildx used by `aws-ecr` orb.   |
