@@ -6,6 +6,9 @@ RUN set -x && \
     sudo dpkg -i packages-microsoft-prod.deb && \
     rm packages-microsoft-prod.deb
 
+# Use Microsoft packages instead of Ubuntu so we can later install trx2unit
+COPY 99microsoft-dotnet.pref /etc/apt/preferences.d
+
 RUN sudo apt-get update && \
     sudo apt-get -y install gettext-base dotnet-sdk-7.0
 
