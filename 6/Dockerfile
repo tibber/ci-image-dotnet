@@ -12,15 +12,14 @@ COPY 99microsoft-dotnet.pref /etc/apt/preferences.d
 RUN sudo apt-get update && \
     sudo apt-get -y install gettext-base dotnet-sdk-6.0
 
-# Install trx2junit to used during build
+# Install trx2junit to be used during build
 RUN dotnet tool install -g trx2junit
 
 # Install dotnet tools to be copied to the target image
-RUN mkdir dotnet-tools
-RUN dotnet tool install --tool-path dotnet-tools dotnet-trace
-RUN dotnet tool install --tool-path dotnet-tools dotnet-counters
-RUN dotnet tool install --tool-path dotnet-tools dotnet-dump
-RUN dotnet tool install --tool-path dotnet-tools dotnet-gcmon
-RUN dotnet tool install --tool-path dotnet-tools dotnet-stack
+RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-trace
+RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-counters
+RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-dump
+RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-gcmon
+RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-stack
 
 ENV PATH="${PATH}:/home/circleci/.dotnet/tools"
