@@ -7,7 +7,6 @@ This repository is needed because Circle CI does not have a ready-made image for
 
 List of image tags:
 
-
 | Tag      | Based on                                | Description                                                         |
 | :---:    | :---:                                   | :---:                                                               |
 | 6        | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-6.0` installed. Supports buildx used by `aws-ecr` orb.   |
