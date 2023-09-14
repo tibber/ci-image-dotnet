@@ -15,11 +15,4 @@ RUN sudo apt-get update && \
 # Install trx2junit to be used during build
 RUN dotnet tool install -g trx2junit
 
-# Install dotnet tools to be copied to the target image
-RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-trace
-RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-counters
-RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-dump
-RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-gcmon
-RUN dotnet tool install --tool-path ~/dotnet-tools dotnet-stack
-
 ENV PATH="${PATH}:/home/circleci/.dotnet/tools"
