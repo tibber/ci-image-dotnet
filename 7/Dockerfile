@@ -16,3 +16,5 @@ RUN sudo apt-get update && \
 RUN dotnet tool install -g trx2junit
 
 ENV PATH="${PATH}:/home/circleci/.dotnet/tools"
+
+RUN curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash
