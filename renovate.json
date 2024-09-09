@@ -1,6 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "dependencyDashboard": true,
+  "enabledManagers": ["dockerfile"],
+  "packageRules": [
+      {
+        "pinDigests": true,
+        "matchUpdateTypes": [
+          "major"
+        ],
+        "enabled": false
+      }  
   ]
 }
