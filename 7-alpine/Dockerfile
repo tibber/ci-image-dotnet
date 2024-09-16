@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine
+FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine@sha256:1478c99b4bed8d297ccd000e0fdaf060cdfb281779f8c8aa47f031a09503c0d4
 
 # Check latest version at https://api.github.com/repos/docker/cli/tags
 ENV DOCKER_VERSION 23.0.1
@@ -11,4 +11,4 @@ RUN set -x && \
     dotnet tool install -g trx2junit
 
 ENV PATH="${PATH}:/root/.dotnet/tools"
-    
+

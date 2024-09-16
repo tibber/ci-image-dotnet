@@ -1,4 +1,4 @@
-FROM cimg/base:current
+FROM cimg/base:current@sha256:161944153a72083104b19d44575faf5fc838b904fafa57e241002eefd8b3ed55
 
 RUN set -x && \
     repo_version=$(if command -v lsb_release >/dev/null 2>&1; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi) && \
