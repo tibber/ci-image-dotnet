@@ -1,4 +1,4 @@
-FROM cimg/base:current@sha256:f6b81723236539a091130e4f0e57c599253abf2e3980aa4e60eeee871b4e2ef7
+FROM cimg/base:current@sha256:c4b738db95b65caeb66429913ce5ef53e203ee30bcf050896c9a6694a335b942
 
 # This convenience image by Circle CI (https://github.com/CircleCI-Public/cimg-base) runs Ubuntu 22.04
 # in which you can install .NET 9.0 only by using backports ppa.
