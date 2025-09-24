@@ -14,7 +14,6 @@ List of image tags:
 | 7          | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-7.0` installed from Microsofts's package repository. Supports buildx used by `aws-ecr` orb.   |
 | 8          | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-8.0` installed from Microsofts's package repository. Supports buildx used by `aws-ecr` orb.   |
 | 9          | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-9.0` installed from Ubuntu's package repository (backport ppa needed for 22.04). Supports buildx used by `aws-ecr` orb.   |
-| 10-preview | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-10`  installed from Ubuntu's ppa:dotnet/preview repository. Supports buildx used by `aws-ecr` orb.   |
 | 10         | cimg/base:current                       | Circle CI base image with .NET `dotnet-sdk-10` installed from Ubuntu's ppa:dotnet/preview repository starting with `rc.1`. Will transition to stable as it becomes available. Supports buildx used by `aws-ecr` orb.   |
 
 # This image is built in Dockerhub
