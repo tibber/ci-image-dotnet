@@ -1,4 +1,4 @@
-FROM cimg/base:current@sha256:914f8f3896bc4033634a446552a8c256f19fdb56aa4e999cf493961d0681bc48
+FROM cimg/base:current@sha256:f9e54a98a858e43aaa025a78fe62857d309dce4444f3d346dc281a2593d5d815
 
 RUN sudo add-apt-repository ppa:dotnet/previews && \
    sudo apt-get update && \
