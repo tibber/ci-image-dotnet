@@ -1,8 +1,7 @@
 FROM cimg/base:current@sha256:914f8f3896bc4033634a446552a8c256f19fdb56aa4e999cf493961d0681bc48
 
 # Install GPG and import Microsoft's public key for dotnet-install script verification
-RUN set -x && \
-    sudo apt-get update && \
+RUN sudo apt-get update && \
     sudo apt-get -y install gpg && \
     sudo rm -rf /var/lib/apt/lists/* && \
     # Download and import Microsoft's public key
@@ -11,9 +10,7 @@ RUN set -x && \
     rm dotnet-install.asc
 
 # Download, verify, and install .NET SDK 10.0
-RUN set -x && \
-    # Download the installation script and its signature
-    wget https://dot.net/v1/dotnet-install.sh && \
+RUN wget https://dot.net/v1/dotnet-install.sh && \
     wget https://dot.net/v1/dotnet-install.sig && \
     # Verify the GPG signature
     gpg --verify dotnet-install.sig dotnet-install.sh && \
@@ -34,6 +31,3 @@ ENV DOTNET_CLI_TELEMETRY_OPTOUT=1 \
 
 # Install trx2junit to be used during build
 RUN dotnet tool install -g trx2junit
-
-ENV PATH="${PATH}:/home/circleci/.dotnet/tools"
-ENV DOTNET_ROOT=/usr/share/dotnet
