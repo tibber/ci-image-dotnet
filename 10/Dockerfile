@@ -9,7 +9,7 @@ RUN sudo apt-get update && \
     gpg --import dotnet-install.asc && \
     rm dotnet-install.asc
 
-# Download, verify, and install .NET SDK 10.0
+# Download, verify and install .NET SDK 10.0
 RUN wget https://dot.net/v1/dotnet-install.sh && \
     wget https://dot.net/v1/dotnet-install.sig && \
     # Verify the GPG signature
