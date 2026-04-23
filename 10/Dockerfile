@@ -1,4 +1,4 @@
-FROM cimg/base:current@sha256:fdfacc6ce19a878cdacd7af20adf2b7a6dd0c0965b453c73844409bfbe882377
+FROM cimg/base:current@sha256:c7693014a5fe7f5c95ac54590b54e2b183995241e082eb20377761916477a3e4
 
 # Install GPG and import Microsoft's public key for dotnet-install script verification
 RUN sudo apt-get update && \
