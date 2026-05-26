@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
-  "enabledManagers": ["dockerfile"],
+  "enabledManagers": ["dockerfile", "custom.regex"],
   "packageRules": [
     {
       "description": "Disable major docker updates",
@@ -19,15 +19,52 @@
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["digest"],
       "groupName": "docker-digests"
+    },
+    {
+      "description": "Constrain .NET 8 SDK updates to the 8.x channel",
+      "matchDatasources": ["dotnet-version"],
+      "matchDepNames": ["dotnet-sdk-8.0"],
+      "allowedVersions": "/^8\\./"
+    },
+    {
+      "description": "Constrain .NET 9 SDK updates to the 9.x channel",
+      "matchDatasources": ["dotnet-version"],
+      "matchDepNames": ["dotnet-sdk-9.0"],
+      "allowedVersions": "/^9\\./"
+    },
+    {
+      "description": "Constrain .NET 10 SDK updates to the 10.x channel",
+      "matchDatasources": ["dotnet-version"],
+      "matchDepNames": ["dotnet-sdk-10.0"],
+      "allowedVersions": "/^10\\./"
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Track the .NET SDK version pinned via dotnet-install.sh --version in 10/Dockerfile",
+      "description": "Pin .NET 8 SDK via dotnet-install.sh --version in 8/Dockerfile",
+      "managerFilePatterns": ["/^8/Dockerfile$/"],
+      "matchStrings": ["--version (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "dotnet-sdk-8.0",
+      "packageNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet-version"
+    },
+    {
+      "customType": "regex",
+      "description": "Pin .NET 9 SDK via dotnet-install.sh --version in 9/Dockerfile",
+      "managerFilePatterns": ["/^9/Dockerfile$/"],
+      "matchStrings": ["--version (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "dotnet-sdk-9.0",
+      "packageNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet-version"
+    },
+    {
+      "customType": "regex",
+      "description": "Pin .NET 10 SDK via dotnet-install.sh --version in 10/Dockerfile",
       "managerFilePatterns": ["/^10/Dockerfile$/"],
       "matchStrings": ["--version (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
-      "depNameTemplate": "dotnet-sdk",
+      "depNameTemplate": "dotnet-sdk-10.0",
+      "packageNameTemplate": "dotnet-sdk",
       "datasourceTemplate": "dotnet-version"
     }
   ]
