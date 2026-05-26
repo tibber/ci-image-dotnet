@@ -20,5 +20,15 @@
       "matchUpdateTypes": ["digest"],
       "groupName": "docker-digests"
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Track the .NET SDK version pinned via dotnet-install.sh --version in 10/Dockerfile",
+      "managerFilePatterns": ["/^10/Dockerfile$/"],
+      "matchStrings": ["--version (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet-version"
+    }
   ]
 }
