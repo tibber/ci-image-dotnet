@@ -16,7 +16,7 @@ RUN wget https://dot.net/v1/dotnet-install.sh && \
     gpg --verify dotnet-install.sig dotnet-install.sh && \
     # Make script executable and run installation
     chmod +x dotnet-install.sh && \
-    sudo ./dotnet-install.sh --version 9.0.316 --install-dir /usr/share/dotnet && \
+    sudo ./dotnet-install.sh --version 9.0.317 --install-dir /usr/share/dotnet && \
     # Cleanup
     rm dotnet-install.sh dotnet-install.sig && \
     sudo ln -s /usr/share/dotnet/dotnet /usr/local/bin/dotnet
