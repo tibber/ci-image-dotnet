@@ -37,6 +37,15 @@
       "matchDatasources": ["dotnet-version"],
       "matchDepNames": ["dotnet-sdk-10.0"],
       "allowedVersions": "/^10\\./"
+    },
+    {
+      "description": "Automerge docker digest/patch/minor and .NET SDK patch bumps. Matched on DATASOURCE, not manager: the SDK bumps come from the regex manager (datasource dotnet-version), not the docker datasource, and Renovate only automerges a branch when EVERY update in it has automerge enabled. platformAutomerge:false makes Renovate do the merge itself. There is no CI in this repo, so nothing gates the merge; minimumReleaseAge is the safety margin instead, so a bad release is noticed upstream before we adopt it (same 7 days as the shared preset uses for terraform). timestamp-optional lets updates without a release date (docker digests) through. Majors stay disabled by the rule above; this rule deliberately carries no `enabled` key.",
+      "matchDatasources": ["docker", "dotnet-version"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "automerge": true,
+      "platformAutomerge": false,
+      "minimumReleaseAge": "7 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ],
   "customManagers": [
