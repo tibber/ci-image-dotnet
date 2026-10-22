@@ -19,14 +19,6 @@ The tags are moving tags: each one always points to the latest build of that .NE
 
 The exact .NET SDK version and the `cimg/base` version are pinned in each folder's `Dockerfile` (`8/`, `9/`, `10/`) and updated by Renovate (see `.github/renovate.json`).
 
-### Which SDK is in an image?
-
-```bash
-docker run --rm --platform linux/amd64 tibber/ci-image-dotnet:10.0 ls /usr/share/dotnet/sdk
-```
-
-Prints the installed SDK version, for example `10.0.402`. The images are `linux/amd64` only, so on Apple Silicon keep the `--platform` flag.
-
 ## Build and publish
 
 The images are built and published by Docker Hub's automated build from `main` (folder `8/`, `9/`, `10/` to tag `8.0`, `9.0`, `10.0`). Every merge to `main` rebuilds all three tags.
