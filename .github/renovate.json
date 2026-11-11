@@ -39,6 +39,12 @@
       "allowedVersions": "/^10\\./"
     },
     {
+      "description": "Constrain .NET 11 SDK updates to the 11.x channel",
+      "matchDatasources": ["dotnet-version"],
+      "matchDepNames": ["dotnet-sdk-11.0"],
+      "allowedVersions": "/^11\\./"
+    },
+    {
       "description": "Automerge docker digest/patch/minor and .NET SDK patch bumps. Matched on DATASOURCE, not manager: the SDK bumps come from the regex manager (datasource dotnet-version), not the docker datasource, and Renovate only automerges a branch when EVERY update in it has automerge enabled. platformAutomerge:false makes Renovate do the merge itself. There is no CI in this repo, so nothing gates the merge; minimumReleaseAge is the safety margin instead, so a bad release is noticed upstream before we adopt it (same 7 days as the shared preset uses for terraform). timestamp-optional lets updates without a release date (docker digests) through. Majors stay disabled by the rule above; this rule deliberately carries no `enabled` key.",
       "matchDatasources": ["docker", "dotnet-version"],
       "matchUpdateTypes": ["digest", "patch", "minor"],
@@ -73,6 +79,15 @@
       "managerFilePatterns": ["/^10/Dockerfile$/"],
       "matchStrings": ["--version (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "depNameTemplate": "dotnet-sdk-10.0",
+      "packageNameTemplate": "dotnet-sdk",
+      "datasourceTemplate": "dotnet-version"
+    },
+    {
+      "customType": "regex",
+      "description": "Pin .NET 11 SDK via dotnet-install.sh --version in 11/Dockerfile",
+      "managerFilePatterns": ["/^11/Dockerfile$/"],
+      "matchStrings": ["--version (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "dotnet-sdk-11.0",
       "packageNameTemplate": "dotnet-sdk",
       "datasourceTemplate": "dotnet-version"
     }
