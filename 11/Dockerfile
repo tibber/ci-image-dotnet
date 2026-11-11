@@ -28,6 +28,3 @@ RUN sudo apt-get update && \
 ENV DOTNET_CLI_TELEMETRY_OPTOUT=1 \
     DOTNET_ROOT=/usr/share/dotnet \
     PATH="${PATH}:/home/circleci/.dotnet/tools"
-
-# Install trx2junit to be used during build
-RUN dotnet tool install -g trx2junit && dotnet tool list -g

@@ -16,6 +16,8 @@ List of image tags:
 
 The tags are moving tags: each one always points to the latest build of that .NET line.
 
+`8.0`, `9.0` and `10.0` ship `trx2junit` as a global tool; `11.0` does not. On `11.0`, declare it in the repo's `.config/dotnet-tools.json` and call it as `dotnet trx2junit` after `dotnet tool restore`, or let xunit write JUnit directly with `--report-xunit-junit`.
+
 ## Versions
 
 The exact .NET SDK version and the `cimg/base` version are pinned in each folder's `Dockerfile` (`8/`, `9/`, `10/`, `11/`) and updated by Renovate (see `.github/renovate.json`).
