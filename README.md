@@ -24,4 +24,12 @@ The exact .NET SDK version and the `cimg/base` version are pinned in each folder
 
 The images are built and published by Docker Hub's automated build from `main` (folder `8/`, `9/`, `10/`, `11/` to tag `8.0`, `9.0`, `10.0`, `11.0`). Every merge to `main` rebuilds all four tags.
 
+### Adding a new .NET version
+
+Adding a folder is not enough on its own. The folder-to-tag mapping lives in Docker Hub, not in this repo, so Docker Hub ignores a new folder until it has a build rule. Without one, the merge builds the existing tags, nothing fails, and the new tag never appears.
+
+1. Add the folder, its Renovate rules and its row in the tag table above.
+2. Before merging, add a build rule in Docker Hub under `tibber/ci-image-dotnet` → Builds → Configure Automated Builds: source type `Branch`, source `main`, Docker tag `<major>.0`, Dockerfile location `Dockerfile`, build context `/<major>`. This needs admin access to the `tibber` organisation on Docker Hub.
+3. After merging, check the merge commit's statuses on GitHub. There should be a `ci/dockercloud-stage (/<major>)` status for each folder.
+
 Renovate automerges docker digest, patch and minor bumps and .NET SDK bumps (SDK bumps wait 7 days), see `.github/renovate.json`.
