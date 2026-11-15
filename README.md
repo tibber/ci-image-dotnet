@@ -1,5 +1,8 @@
 # Tibber CI image for .NET
 
+[![Backstage](https://img.shields.io/badge/Backstage-catalog-9BF0E1?logo=backstage 'Backstage')](https://tibber.roadie.so/catalog/default/component/ci-image-dotnet)
+[![CircleCI](https://img.shields.io/badge/CircleCI-pipelines-343434?logo=circleci 'CircleCI')](https://circleci.com/gh/tibber/ci-image-dotnet)
+
 > Convenience images for running .NET Circle CI builds
 
 This repository is needed because Circle CI does not have a ready-made image for building .NET (see https://circleci.com/docs/circleci-images).
